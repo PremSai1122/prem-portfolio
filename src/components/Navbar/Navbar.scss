@@ -1,0 +1,146 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 500;
+  @include flex-between;
+  padding: 1.2rem 4rem;
+  border-bottom: 1px solid transparent;
+  transition: background $transition-slow, border-color $transition-slow, backdrop-filter $transition-slow;
+
+  &.scrolled {
+    background: rgba($bg, 0.92);
+    backdrop-filter: blur(20px);
+    border-color: $border;
+  }
+
+  @include lg { padding: 1rem 2rem; }
+  @include md { padding: 1rem 1.5rem; }
+
+  &__logo {
+    @include mono(0.88rem, 0.04em);
+    color: $accent2;
+    transition: opacity $transition-fast;
+
+    span { color: $muted; }
+
+    &:hover { opacity: 0.8; }
+  }
+
+  // Desktop nav links
+  &__links {
+    display: flex;
+    gap: 2.5rem;
+
+    @include md { display: none; }
+
+    a {
+      @include mono(0.68rem, 0.14em);
+      text-transform: uppercase;
+      color: $muted;
+      transition: color $transition-fast;
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -3px; left: 0; right: 0;
+        height: 1px;
+        background: $accent2;
+        transform: scaleX(0);
+        transition: transform $transition-base;
+      }
+
+      &:hover,
+      &.active {
+        color: $accent2;
+        &::after { transform: scaleX(1); }
+      }
+    }
+  }
+
+  // Mobile hamburger button
+  &__burger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+
+    @include md { display: flex; }
+
+    span {
+      display: block;
+      width: 24px;
+      height: 1.5px;
+      background: $muted2;
+      border-radius: 2px;
+      transition: all $transition-base;
+    }
+
+    &.open {
+      span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+      span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+      span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+    }
+  }
+
+  // Mobile drawer
+  &__drawer {
+    display: none;
+
+    @include md {
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: 0; right: 0;
+      width: min(80vw, 300px);
+      height: 100vh;
+      background: $surface;
+      border-left: 1px solid $border2;
+      padding: 6rem 2rem 2rem;
+      gap: 0.5rem;
+      transform: translateX(100%);
+      transition: transform $transition-slow;
+      z-index: 400;
+
+      &.open { transform: translateX(0); }
+
+      a {
+        @include mono(0.75rem, 0.14em);
+        text-transform: uppercase;
+        color: $muted2;
+        padding: 1rem 0;
+        border-bottom: 1px solid $border;
+        transition: color $transition-fast;
+
+        &:hover,
+        &.active { color: $accent2; }
+      }
+    }
+  }
+
+  // Backdrop for mobile menu
+  &__backdrop {
+    display: none;
+
+    @include md {
+      display: block;
+      position: fixed;
+      inset: 0;
+      background: rgba($bg, 0.7);
+      backdrop-filter: blur(4px);
+      z-index: 399;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity $transition-base;
+
+      &.open {
+        opacity: 1;
+        pointer-events: all;
+      }
+    }
+  }
+}

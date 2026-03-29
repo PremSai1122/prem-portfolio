@@ -1,0 +1,100 @@
+@use 'variables' as *;
+
+// ── Responsive mixins ────────────────────────────────────────────
+@mixin xs   { @media (max-width: #{$bp-xs})  { @content; } }
+@mixin sm   { @media (max-width: #{$bp-sm})  { @content; } }
+@mixin md   { @media (max-width: #{$bp-md})  { @content; } }
+@mixin lg   { @media (max-width: #{$bp-lg})  { @content; } }
+@mixin xl   { @media (max-width: #{$bp-xl})  { @content; } }
+
+@mixin md-up  { @media (min-width: #{$bp-md})  { @content; } }
+@mixin lg-up  { @media (min-width: #{$bp-lg})  { @content; } }
+
+// ── Flex helpers ─────────────────────────────────────────────────
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+// ── Typography mixins ────────────────────────────────────────────
+@mixin mono($size: 0.72rem, $spacing: 0.1em) {
+  font-family: $font-mono;
+  font-size: $size;
+  letter-spacing: $spacing;
+}
+
+@mixin eyebrow {
+  @include mono(0.65rem, 0.22em);
+  text-transform: uppercase;
+  color: $accent;
+}
+
+@mixin display-heading {
+  font-family: $font-display;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: $text;
+}
+
+// ── Card surface ─────────────────────────────────────────────────
+@mixin card {
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: $radius-md;
+}
+
+// ── Gradient top bar ─────────────────────────────────────────────
+@mixin gradient-bar {
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, $accent, $accent2, $accent3);
+  }
+}
+
+// ── Fade-in animation base ───────────────────────────────────────
+@mixin fade-init {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+
+  &.visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+// ── Section padding ──────────────────────────────────────────────
+@mixin section-padding {
+  padding: $space-2xl $space-xl;
+  max-width: 1100px;
+  margin: 0 auto;
+
+  @include lg { padding: 5rem $space-lg; }
+  @include md { padding: 4rem $space-md; }
+  @include sm { padding: 3rem $space-sm; }
+}
+
+// ── Button base ──────────────────────────────────────────────────
+@mixin btn-base {
+  @include mono(0.72rem, 0.1em);
+  text-transform: uppercase;
+  padding: 0.85rem 2rem;
+  border-radius: $radius-sm;
+  text-decoration: none;
+  display: inline-block;
+  transition: all $transition-base;
+  cursor: pointer;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}

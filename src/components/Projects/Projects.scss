@@ -1,0 +1,136 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.projects {
+  @include section-padding;
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  &__card {
+    @include card;
+    padding: 2.5rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2rem;
+    align-items: start;
+    position: relative;
+    overflow: hidden;
+    transition: border-color $transition-base, transform $transition-base;
+
+    @include md { grid-template-columns: 1fr; padding: 2rem; }
+    @include sm { padding: 1.5rem; gap: 1.5rem; }
+
+    // Left accent bar
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: transform $transition-base;
+    }
+
+    &:hover {
+      border-color: $border2;
+      transform: translateX(6px);
+
+      &::after { transform: scaleY(1); }
+
+      .projects__card-num { color: rgba(99, 102, 241, 0.15); }
+    }
+
+    // Color variants applied via inline style for the ::after bar
+    &--accent  { &::after { background: linear-gradient(180deg, $accent,  transparent); } }
+    &--accent2 { &::after { background: linear-gradient(180deg, $accent2, transparent); } }
+    &--accent3 { &::after { background: linear-gradient(180deg, $accent3, transparent); } }
+  }
+
+  &__card-body {}
+
+  &__client {
+    @include mono(0.62rem, 0.2em);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  &__name {
+    font-family: $font-display;
+    font-size: 1.4rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: $text;
+    margin-bottom: 0.4rem;
+
+    @include sm { font-size: 1.15rem; }
+  }
+
+  &__period {
+    @include mono(0.65rem, 0);
+    color: $muted;
+    margin-bottom: 1rem;
+  }
+
+  &__desc {
+    color: $muted2;
+    font-size: 0.88rem;
+    line-height: 1.75;
+    margin-bottom: 1.2rem;
+
+    @include sm { font-size: 0.82rem; }
+  }
+
+  &__points {
+    margin-bottom: 1.5rem;
+
+    li {
+      font-size: 0.85rem;
+      color: $muted2;
+      padding: 0.3rem 0 0.3rem 1.3rem;
+      position: relative;
+      line-height: 1.7;
+
+      @include sm { font-size: 0.8rem; }
+
+      &::before {
+        content: '→';
+        position: absolute;
+        left: 0;
+        color: $accent;
+        font-size: 0.8rem;
+        top: 0.35rem;
+      }
+    }
+  }
+
+  &__tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+
+    span {
+      @include mono(0.6rem, 0.08em);
+      padding: 0.2rem 0.65rem;
+      border-radius: $radius-sm;
+    }
+  }
+
+  // Big decorative number
+  &__card-num {
+    font-family: $font-display;
+    font-size: 5rem;
+    font-weight: 800;
+    color: $border2;
+    line-height: 1;
+    letter-spacing: -0.05em;
+    user-select: none;
+    transition: color $transition-base;
+    align-self: start;
+
+    @include md { display: none; }
+  }
+}

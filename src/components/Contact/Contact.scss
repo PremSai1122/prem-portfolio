@@ -1,0 +1,103 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.contact {
+  padding: 7rem 4rem 8rem;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+
+  @include lg { padding: 5rem 2rem 6rem; }
+  @include md { padding: 4rem 1.5rem 5rem; }
+  @include sm { padding: 3rem 1rem 4rem; }
+
+  &__eyebrow {
+    @include eyebrow;
+    margin-bottom: 1rem;
+  }
+
+  &__heading {
+    font-family: $font-display;
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+
+    span { color: $accent2; }
+  }
+
+  &__sub {
+    color: $muted;
+    font-size: 0.95rem;
+    line-height: 1.75;
+    margin-bottom: 3rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @include sm { font-size: 0.88rem; margin-bottom: 2rem; }
+  }
+
+  &__links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+
+    @include sm { gap: 0.75rem; }
+  }
+
+  &__link {
+    @include mono(0.7rem, 0.1em);
+    text-transform: uppercase;
+    padding: 0.85rem 1.5rem;
+    border-radius: $radius-sm;
+    border: 1px solid $border2;
+    color: $muted2;
+    background: transparent;
+    transition: all $transition-base;
+
+    @include sm { padding: 0.75rem 1rem; font-size: 0.62rem; }
+
+    &:hover {
+      border-color: $accent2;
+      color: $accent2;
+    }
+
+    &--primary {
+      background: $accent;
+      border-color: $accent;
+      color: #fff;
+
+      &:hover {
+        background: transparent;
+        color: $accent;
+        border-color: $accent;
+        box-shadow: 0 0 24px rgba($accent, 0.2);
+      }
+    }
+  }
+
+  &__location {
+    @include mono(0.65rem, 0.12em);
+    color: $muted;
+  }
+}
+
+// ── Footer ───────────────────────────────────────────────────────
+.footer {
+  border-top: 1px solid $border;
+  padding: 2rem 4rem;
+  @include flex-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  @include mono(0.65rem, 0.08em);
+  color: $muted;
+
+  @include md { padding: 1.5rem 1.5rem; }
+  @include sm { flex-direction: column; text-align: center; padding: 1.5rem 1rem; }
+
+  &__mid { color: $border2; }
+}

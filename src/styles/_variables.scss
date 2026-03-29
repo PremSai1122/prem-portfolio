@@ -1,0 +1,43 @@
+// ── Color Palette ──────────────────────────────────────────────
+$bg:        #05050f;
+$surface:   #0c0c1d;
+$surface2:  #12122a;
+$border:    #1a1a35;
+$border2:   #252545;
+$accent:    #6366f1;
+$accent2:   #34d399;
+$accent3:   #fb923c;
+$text:      #e2e2f0;
+$muted:     #5a5a90;
+$muted2:    #9090c0;
+
+// ── Typography ──────────────────────────────────────────────────
+$font-display: 'Syne', sans-serif;
+$font-mono:    'DM Mono', monospace;
+$font-body:    'Epilogue', sans-serif;
+
+// ── Spacing scale ───────────────────────────────────────────────
+$space-xs:  0.4rem;
+$space-sm:  0.8rem;
+$space-md:  1.5rem;
+$space-lg:  2.5rem;
+$space-xl:  4rem;
+$space-2xl: 7rem;
+
+// ── Breakpoints ─────────────────────────────────────────────────
+$bp-xs:  380px;
+$bp-sm:  480px;
+$bp-md:  768px;
+$bp-lg:  1024px;
+$bp-xl:  1280px;
+
+// ── Transitions ─────────────────────────────────────────────────
+$transition-fast:   0.15s ease;
+$transition-base:   0.25s ease;
+$transition-slow:   0.4s ease;
+
+// ── Border radius ───────────────────────────────────────────────
+$radius-sm:  3px;
+$radius-md:  6px;
+$radius-lg:  12px;
+$radius-pill: 100px;
