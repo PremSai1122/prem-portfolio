@@ -1,14 +1,42 @@
-@use 'variables' as *;
+@use "variables" as *;
 
 // ── Responsive mixins ────────────────────────────────────────────
-@mixin xs   { @media (max-width: #{$bp-xs})  { @content; } }
-@mixin sm   { @media (max-width: #{$bp-sm})  { @content; } }
-@mixin md   { @media (max-width: #{$bp-md})  { @content; } }
-@mixin lg   { @media (max-width: #{$bp-lg})  { @content; } }
-@mixin xl   { @media (max-width: #{$bp-xl})  { @content; } }
+@mixin xs {
+  @media (max-width: #{$bp-xs}) {
+    @content;
+  }
+}
+@mixin sm {
+  @media (max-width: #{$bp-sm}) {
+    @content;
+  }
+}
+@mixin md {
+  @media (max-width: #{$bp-md}) {
+    @content;
+  }
+}
+@mixin lg {
+  @media (max-width: #{$bp-lg}) {
+    @content;
+  }
+}
+@mixin xl {
+  @media (max-width: #{$bp-xl}) {
+    @content;
+  }
+}
 
-@mixin md-up  { @media (min-width: #{$bp-md})  { @content; } }
-@mixin lg-up  { @media (min-width: #{$bp-lg})  { @content; } }
+@mixin md-up {
+  @media (min-width: #{$bp-md}) {
+    @content;
+  }
+}
+@mixin lg-up {
+  @media (min-width: #{$bp-lg}) {
+    @content;
+  }
+}
 
 // ── Flex helpers ─────────────────────────────────────────────────
 @mixin flex-center {
@@ -54,9 +82,11 @@
 // ── Gradient top bar ─────────────────────────────────────────────
 @mixin gradient-bar {
   &::before {
-    content: '';
+    content: "";
     position: absolute;
-    top: 0; left: 0; right: 0;
+    top: 0;
+    left: 0;
+    right: 0;
     height: 3px;
     background: linear-gradient(90deg, $accent, $accent2, $accent3);
   }
@@ -66,7 +96,9 @@
 @mixin fade-init {
   opacity: 0;
   transform: translateY(28px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
 
   &.visible {
     opacity: 1;
@@ -80,9 +112,15 @@
   max-width: 1100px;
   margin: 0 auto;
 
-  @include lg { padding: 5rem $space-lg; }
-  @include md { padding: 4rem $space-md; }
-  @include sm { padding: 3rem $space-sm; }
+  @include lg {
+    padding: 5rem $space-lg;
+  }
+  @include md {
+    padding: 4rem $space-md;
+  }
+  @include sm {
+    padding: 3rem $space-sm;
+  }
 }
 
 // ── Button base ──────────────────────────────────────────────────

@@ -1,5 +1,5 @@
-@use '../../styles/variables' as *;
-@use '../../styles/mixins' as *;
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
 
 .experience {
   @include section-padding;
@@ -13,8 +13,12 @@
 
     @include gradient-bar;
 
-    @include md { padding: 2rem; }
-    @include sm { padding: 1.5rem; }
+    @include md {
+      padding: 2rem;
+    }
+    @include sm {
+      padding: 1.5rem;
+    }
   }
 
   &__header {
@@ -24,7 +28,10 @@
     flex-wrap: wrap;
     gap: 1.5rem;
 
-    @include sm { flex-direction: column; gap: 1rem; }
+    @include sm {
+      flex-direction: column;
+      gap: 1rem;
+    }
   }
 
   &__company {
@@ -34,7 +41,9 @@
     letter-spacing: -0.02em;
     color: $text;
 
-    span { color: $accent; }
+    span {
+      color: $accent;
+    }
   }
 
   &__role {
@@ -42,13 +51,17 @@
     color: $accent2;
     margin-top: 0.4rem;
 
-    @include sm { font-size: 0.68rem; }
+    @include sm {
+      font-size: 0.68rem;
+    }
   }
 
   &__meta {
     text-align: right;
 
-    @include sm { text-align: left; }
+    @include sm {
+      text-align: left;
+    }
   }
 
   &__duration {
@@ -58,7 +71,9 @@
     color: $accent3;
     display: block;
 
-    @include sm { font-size: 1.5rem; }
+    @include sm {
+      font-size: 1.5rem;
+    }
   }
 
   &__period {
@@ -77,10 +92,12 @@
       position: relative;
       line-height: 1.75;
 
-      @include sm { font-size: 0.82rem; }
+      @include sm {
+        font-size: 0.82rem;
+      }
 
       &::before {
-        content: '▸';
+        content: "▸";
         position: absolute;
         left: 0;
         color: $accent2;

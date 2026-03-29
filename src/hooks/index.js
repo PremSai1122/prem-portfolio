@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from "react";
 
 export function useInView(threshold = 0.1) {
   const ref = useRef(null);
@@ -12,7 +12,7 @@ export function useInView(threshold = 0.1) {
           obs.disconnect();
         }
       },
-      { threshold }
+      { threshold },
     );
     if (ref.current) obs.observe(ref.current);
     return () => obs.disconnect();
@@ -25,8 +25,8 @@ export function useScrollY() {
   const [y, setY] = useState(0);
   useEffect(() => {
     const fn = () => setY(window.scrollY);
-    window.addEventListener('scroll', fn, { passive: true });
-    return () => window.removeEventListener('scroll', fn);
+    window.addEventListener("scroll", fn, { passive: true });
+    return () => window.removeEventListener("scroll", fn);
   }, []);
   return y;
 }
@@ -36,7 +36,7 @@ export function useActiveSection(sectionIds) {
   const scrollY = useScrollY();
 
   useEffect(() => {
-    const current = sectionIds.find(id => {
+    const current = sectionIds.find((id) => {
       const el = document.getElementById(id);
       if (!el) return false;
       const { top, bottom } = el.getBoundingClientRect();
@@ -58,8 +58,10 @@ export function useCounter(target, enabled) {
     const step = Math.ceil(n / 30);
     const timer = setInterval(() => {
       current += step;
-      if (current >= n) { setVal(n); clearInterval(timer); }
-      else setVal(current);
+      if (current >= n) {
+        setVal(n);
+        clearInterval(timer);
+      } else setVal(current);
     }, 40);
     return () => clearInterval(timer);
   }, [enabled, target]);

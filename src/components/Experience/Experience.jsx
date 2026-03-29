@@ -1,7 +1,7 @@
-import FadeSection from '../FadeSection';
-import SectionHeader from '../SectionHeader';
-import { portfolio } from '../../data/portfolio';
-import './Experience.scss';
+import FadeSection from "../FadeSection";
+import SectionHeader from "../SectionHeader";
+import { portfolio } from "../../data/portfolio";
+import "./Experience.scss";
 
 export default function Experience() {
   const { experience: exp } = portfolio;
@@ -21,12 +21,16 @@ export default function Experience() {
             </div>
             <div className="experience__meta">
               <span className="experience__duration">{exp.duration}</span>
-              <span className="experience__period">{exp.period} · {exp.location}</span>
+              <span className="experience__period">
+                {exp.period} · {exp.location}
+              </span>
             </div>
           </div>
 
           <ul className="experience__bullets">
-            {exp.bullets.map((b, i) => <li key={i}>{b}</li>)}
+            {exp.bullets.map((b, i) => (
+              <li key={i}>{b}</li>
+            ))}
           </ul>
         </div>
       </FadeSection>

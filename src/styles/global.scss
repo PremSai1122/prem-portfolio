@@ -1,10 +1,12 @@
-@use 'variables' as *;
-@use 'mixins' as *;
+@use "variables" as *;
+@use "mixins" as *;
 
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Syne:wght@400;600;700;800&family=Epilogue:wght@300;400;500;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Syne:wght@400;600;700;800&family=Epilogue:wght@300;400;500;600;700;800;900&display=swap");
 
 // ── Reset ────────────────────────────────────────────────────────
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -14,8 +16,12 @@ html {
   scroll-behavior: smooth;
   font-size: 16px;
 
-  @include md { font-size: 15px; }
-  @include sm { font-size: 14px; }
+  @include md {
+    font-size: 15px;
+  }
+  @include sm {
+    font-size: 14px;
+  }
 }
 
 body {
@@ -34,9 +40,16 @@ a {
   text-decoration: none;
 }
 
-ul, ol { list-style: none; }
+ul,
+ol {
+  list-style: none;
+}
 
-img, video { max-width: 100%; display: block; }
+img,
+video {
+  max-width: 100%;
+  display: block;
+}
 
 button {
   font-family: inherit;
@@ -46,9 +59,16 @@ button {
 }
 
 // ── Scrollbar ────────────────────────────────────────────────────
-::-webkit-scrollbar         { width: 4px; }
-::-webkit-scrollbar-track   { background: $bg; }
-::-webkit-scrollbar-thumb   { background: $border2; border-radius: 2px; }
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: $bg;
+}
+::-webkit-scrollbar-thumb {
+  background: $border2;
+  border-radius: 2px;
+}
 
 // ── Noise overlay ────────────────────────────────────────────────
 .noise-overlay {
@@ -62,13 +82,26 @@ button {
 
 // ── Pulse keyframe ───────────────────────────────────────────────
 @keyframes pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50%       { opacity: 0.4; transform: scale(0.75); }
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.75);
+  }
 }
 
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 // ── Fade-in scroll utility ───────────────────────────────────────

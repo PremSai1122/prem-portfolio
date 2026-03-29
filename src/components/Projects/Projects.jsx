@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import FadeSection from '../FadeSection';
-import SectionHeader from '../SectionHeader';
-import { portfolio } from '../../data/portfolio';
-import './Projects.scss';
+import { useState } from "react";
+import FadeSection from "../FadeSection";
+import SectionHeader from "../SectionHeader";
+import { portfolio } from "../../data/portfolio";
+import "./Projects.scss";
 
 export default function Projects() {
   const [hovered, setHovered] = useState(null);
@@ -18,8 +18,8 @@ export default function Projects() {
               <div
                 className={`projects__card projects__card--${p.colorVar}`}
                 style={{
-                  borderColor: hovered === p.num ? '#252545' : undefined,
-                  transform: hovered === p.num ? 'translateX(6px)' : undefined,
+                  borderColor: hovered === p.num ? "#252545" : undefined,
+                  transform: hovered === p.num ? "translateX(6px)" : undefined,
                 }}
                 onMouseEnter={() => setHovered(p.num)}
                 onMouseLeave={() => setHovered(null)}
@@ -33,11 +33,13 @@ export default function Projects() {
                   <p className="projects__desc">{p.desc}</p>
 
                   <ul className="projects__points">
-                    {p.points.map((pt, j) => <li key={j}>{pt}</li>)}
+                    {p.points.map((pt, j) => (
+                      <li key={j}>{pt}</li>
+                    ))}
                   </ul>
 
                   <div className="projects__tech">
-                    {p.tech.map(t => (
+                    {p.tech.map((t) => (
                       <span
                         key={t}
                         style={{
@@ -54,7 +56,9 @@ export default function Projects() {
 
                 <div
                   className="projects__card-num"
-                  style={{ color: hovered === p.num ? `${p.colorHex}20` : undefined }}
+                  style={{
+                    color: hovered === p.num ? `${p.colorHex}20` : undefined,
+                  }}
                 >
                   {p.num}
                 </div>

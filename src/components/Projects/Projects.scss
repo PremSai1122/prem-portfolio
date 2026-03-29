@@ -1,5 +1,5 @@
-@use '../../styles/variables' as *;
-@use '../../styles/mixins' as *;
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
 
 .projects {
   @include section-padding;
@@ -19,16 +19,26 @@
     align-items: start;
     position: relative;
     overflow: hidden;
-    transition: border-color $transition-base, transform $transition-base;
+    transition:
+      border-color $transition-base,
+      transform $transition-base;
 
-    @include md { grid-template-columns: 1fr; padding: 2rem; }
-    @include sm { padding: 1.5rem; gap: 1.5rem; }
+    @include md {
+      grid-template-columns: 1fr;
+      padding: 2rem;
+    }
+    @include sm {
+      padding: 1.5rem;
+      gap: 1.5rem;
+    }
 
     // Left accent bar
     &::after {
-      content: '';
+      content: "";
       position: absolute;
-      left: 0; top: 0; bottom: 0;
+      left: 0;
+      top: 0;
+      bottom: 0;
       width: 3px;
       transform: scaleY(0);
       transform-origin: top;
@@ -39,18 +49,35 @@
       border-color: $border2;
       transform: translateX(6px);
 
-      &::after { transform: scaleY(1); }
+      &::after {
+        transform: scaleY(1);
+      }
 
-      .projects__card-num { color: rgba(99, 102, 241, 0.15); }
+      .projects__card-num {
+        color: rgba(99, 102, 241, 0.15);
+      }
     }
 
     // Color variants applied via inline style for the ::after bar
-    &--accent  { &::after { background: linear-gradient(180deg, $accent,  transparent); } }
-    &--accent2 { &::after { background: linear-gradient(180deg, $accent2, transparent); } }
-    &--accent3 { &::after { background: linear-gradient(180deg, $accent3, transparent); } }
+    &--accent {
+      &::after {
+        background: linear-gradient(180deg, $accent, transparent);
+      }
+    }
+    &--accent2 {
+      &::after {
+        background: linear-gradient(180deg, $accent2, transparent);
+      }
+    }
+    &--accent3 {
+      &::after {
+        background: linear-gradient(180deg, $accent3, transparent);
+      }
+    }
   }
 
-  &__card-body {}
+  &__card-body {
+  }
 
   &__client {
     @include mono(0.62rem, 0.2em);
@@ -66,7 +93,9 @@
     color: $text;
     margin-bottom: 0.4rem;
 
-    @include sm { font-size: 1.15rem; }
+    @include sm {
+      font-size: 1.15rem;
+    }
   }
 
   &__period {
@@ -81,7 +110,9 @@
     line-height: 1.75;
     margin-bottom: 1.2rem;
 
-    @include sm { font-size: 0.82rem; }
+    @include sm {
+      font-size: 0.82rem;
+    }
   }
 
   &__points {
@@ -94,10 +125,12 @@
       position: relative;
       line-height: 1.7;
 
-      @include sm { font-size: 0.8rem; }
+      @include sm {
+        font-size: 0.8rem;
+      }
 
       &::before {
-        content: '→';
+        content: "→";
         position: absolute;
         left: 0;
         color: $accent;
@@ -131,6 +164,8 @@
     transition: color $transition-base;
     align-self: start;
 
-    @include md { display: none; }
+    @include md {
+      display: none;
+    }
   }
 }
